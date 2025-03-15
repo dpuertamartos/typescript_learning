@@ -11,6 +11,8 @@ const calculateBmi = (height: number, weight: number): string => {
         case bmi >= 30:
             return 'Obesity range';
     }
+
+    return 'Error'
 }
 
 const a: number = Number(process.argv[2])
