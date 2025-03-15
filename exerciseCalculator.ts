@@ -41,4 +41,15 @@ const calculateExercises = (dailyExerciseHours: number[], target: number): Calcu
 }
 
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+const main = (): void => {
+    const target: number = Number(process.argv[2])
+    const numberOfCommandLineArguments: number = process.argv.length;
+    let dailyHoursArguments: number[] = [];
+    for (let i = 3; i < numberOfCommandLineArguments; i++) {
+        dailyHoursArguments.push(Number(process.argv[i]));
+    }
+
+    console.log(calculateExercises(dailyHoursArguments, target))
+}
+
+main()
