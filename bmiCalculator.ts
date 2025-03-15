@@ -1,4 +1,4 @@
-const calculateBmi = (height: number, weight: number): string => {
+export const calculateBmi = (height: number, weight: number): string => {
     const bmi: number = weight / (height / 100) ** 2;
 
     switch (true) {
@@ -12,9 +12,11 @@ const calculateBmi = (height: number, weight: number): string => {
             return 'Obesity range';
     }
 
-    return 'Error'
-}
+    return 'Error';
+};
 
-const a: number = Number(process.argv[2])
-const b: number = Number(process.argv[3])
-console.log(calculateBmi(a,b))
+if (require.main === module) {
+    const a: number = Number(process.argv[2]);
+    const b: number = Number(process.argv[3]);
+    console.log(calculateBmi(a, b));
+};
