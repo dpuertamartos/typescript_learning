@@ -9,7 +9,7 @@ interface CalculateExercisesResult {
 }
 
 
-const calculateExercises = (dailyExerciseHours: number[], target: number): CalculateExercisesResult => {
+export const calculateExercises = (dailyExerciseHours: number[], target: number): CalculateExercisesResult => {
     const numberOfDays: number = dailyExerciseHours.length;
     const trainingDays: number = dailyExerciseHours.filter(hours => hours > 0).length;
     const totalHours: number = dailyExerciseHours.reduce((acc, curr) => acc + curr, 0);
@@ -37,19 +37,22 @@ const calculateExercises = (dailyExerciseHours: number[], target: number): Calcu
         ratingDescription: ratingDescription,
         target: target,
         average: average
-    }
-}
+    };
+};
 
 
 const main = (): void => {
     const target: number = Number(process.argv[2])
     const numberOfCommandLineArguments: number = process.argv.length;
-    let dailyHoursArguments: number[] = [];
+    const dailyHoursArguments: number[] = [];
     for (let i = 3; i < numberOfCommandLineArguments; i++) {
         dailyHoursArguments.push(Number(process.argv[i]));
     }
 
-    console.log(calculateExercises(dailyHoursArguments, target))
-}
+    console.log(calculateExercises(dailyHoursArguments, target));
+};
 
-main()
+
+if (require.main === module) {
+    main();
+};
