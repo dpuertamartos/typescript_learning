@@ -10,4 +10,7 @@ export interface Patient {
     dateOfBirth: string;
     ssn: string;
     gender: string;
+    occupation: string;
 }
+
+export type NonSensitivePatientInfo = Omit<Patient, 'ssn'>;
