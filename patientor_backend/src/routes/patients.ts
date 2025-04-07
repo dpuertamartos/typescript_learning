@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
 import patientsService from '../services/patientsService';
-import { NonSensitivePatientInfo } from '../types';
 import toNewPatient from '../utils';
+import { NonSensitivePatientInfo } from '../types';
+
 
 const router = express.Router();
 
